@@ -12,7 +12,7 @@ unclassified:
     - "build"
     - "web"
     enabled: true
-    gracePeriod: 3600
+    gracePeriod: 1500
   gitHubConfiguration:
     apiRateLimitChecker: ThrottleForNormalize
   gitHubPluginConfig:
@@ -31,19 +31,3 @@ unclassified:
               credentialsId: "cloudbees-ci-casc-workshop-github-app"
               repoOwner: "${GITHUB_ORGANIZATION}"
               repository: "pipeline-library"
-credentials:
-  system:
-    domainCredentials:
-    - credentials:
-      - string:
-          description: "Webhook secret for CloudBees CI Workshop GitHub App"
-          id: "cloudbees-ci-workshop-github-webhook-secret"
-          scope: SYSTEM
-          secret: "${gitHubWebhookSecret}"
-      - gitHubApp:
-          apiUri: "https://api.github.com"
-          appID: "${cbciCascWorkshopGitHubAppId}"
-          description: "CloudBees CI CasC Workshop GitHub App credential"
-          id: "cloudbees-ci-casc-workshop-github-app"
-          owner: "${GITHUB_ORGANIZATION}"
-          privateKey: "${cbciCascWorkshopGitHubAppPrivateKey}"
